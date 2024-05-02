@@ -12,6 +12,8 @@ class Address(models.Model):
 
     class Meta:
         db_table = 'oc_lettings_site_address'
+        verbose_name = "Address"
+        verbose_name_plural = "Addresses"
 
     def __str__(self):
         return f'{self.number} {self.street}'
@@ -23,6 +25,8 @@ class Letting(models.Model):
 
     class Meta:
         db_table = 'oc_lettings_site_letting'
+        verbose_name = "Letting"
+        verbose_name_plural = "Lettings"
 
     def __str__(self):
         return self.title
