@@ -7,6 +7,10 @@ from django.shortcuts import render
 # Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
 # Cras eget scelerisque
 def index(request):
+    """
+    Return index page of lettings
+    Context returned : list of all lettings
+    """
     lettings_list = Letting.objects.all()
     context = {'lettings_list': lettings_list}
     return render(request, 'letting/index.html', context)
@@ -26,6 +30,11 @@ def index(request):
 # Mauris condimentum auctor elementum. Donec quis nisi ligula.
 # Integer vehicula tincidunt enim, ac lacinia augue pulvinar sit amet.
 def letting(request, letting_id):
+    """
+    Return details of a letting
+    Params : letting_id
+    Context returned : title + address
+    """
     letting = Letting.objects.get(id=letting_id)
     context = {
         'title': letting.title,

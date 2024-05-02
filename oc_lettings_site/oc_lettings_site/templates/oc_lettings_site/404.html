@@ -1,0 +1,65 @@
+<!-- 404.html template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found</title>
+    <!-- custom css -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .emoji {
+            font-size: 8rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-gobackhome{
+            display: inline-block;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 30px;
+            border: 1px solid transparent;
+            letter-spacing: 2px;
+            min-width: 160px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 16px 14px 18px;
+            color: #616467;
+            box-shadow: inset 0 0 0 2px #616467;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">😕</div>
+        <h1>Oops! Page Not Found</h1>
+        <p>We couldn't find the page you were looking for.</p>
+        <a class="btn-gobackhome" href="/">
+            Go back to Home and pretend it never happened !
+        </a>
+    </div>
+</body>
+</html>

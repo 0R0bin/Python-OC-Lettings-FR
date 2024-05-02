@@ -10,4 +10,15 @@ from django.shortcuts import render
 # pellentesque iaculis enim cursus in.
 # Praesent volutpat porttitor magna, non finibus neque cursus id.
 def index(request):
+    """Return HomePage to navigate to Profiles or Lettings"""
     return render(request, 'oc_lettings_site/index.html')
+
+
+def handler404(request, exception):
+    """Handle 404 with custom page"""
+    return render(request, 'oc_lettings_site/404.html', status=404)
+
+
+def handler500(request):
+    """Handle 500 with custom page"""
+    return render(request, 'oc_lettings_site/500.html', status=500)
