@@ -5,6 +5,7 @@ Site web d'Orange County Lettings
 ## Développement local
 
 ### Prérequis
+test git
 
 - Compte GitHub avec accès en lecture à ce repository
 - Git CLI
