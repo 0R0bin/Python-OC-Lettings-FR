@@ -76,3 +76,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+### Explication projet
+
+Choix changement model d'applications : https://realpython.com/move-django-model/#the-short-way-reference-the-new-django-model-to-the-old-table
