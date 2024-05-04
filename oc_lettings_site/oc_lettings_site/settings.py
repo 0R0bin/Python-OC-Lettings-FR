@@ -175,7 +175,7 @@ LOGGING = {
 }
 
 sentry_sdk.init(
-    dsn=os.environ.get("SECRET_KEY"),
+    dsn=os.environ.get("SENTRY_KEY_URL"),
     traces_sample_rate=1.0,
     profiles_sample_rate=1.0,
     integrations=[
