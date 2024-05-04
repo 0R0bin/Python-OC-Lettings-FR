@@ -30,6 +30,8 @@ jobs:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         SENTRY_KEY_URL: ${{ secrets.SENTRY_KEY_URL }}
       run: |
+        echo ${{ secrets.SECRET_KEY }} > secret_key.txt
+        cat secret_key.txt
         cd ./oc_lettings_site
         pytest
         flake8
