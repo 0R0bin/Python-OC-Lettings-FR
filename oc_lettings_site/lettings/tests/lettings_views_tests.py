@@ -5,7 +5,6 @@ from django.urls import reverse
 from pytest_django.asserts import assertTemplateUsed
 
 
-@pytest.mark.django_db
 def test_lettings_index_view():
     """Test of the index view of base"""
 
