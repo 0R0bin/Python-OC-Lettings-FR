@@ -8,7 +8,7 @@ def test_letting_index_url():
     path = reverse(URL)
     result = resolve(path)
 
-    assert path == '/lettings/'
+    assert path == r'/lettings/'
     assert result.view_name == 'lettings:index'
 
 
@@ -19,5 +19,5 @@ def test_letting_details_url():
     path = reverse(URL, args=[1])
     result = resolve(path)
 
-    assert path == '/lettings/1/'
+    assert path == r'/lettings/1/'
     assert result.view_name == 'lettings:letting'
