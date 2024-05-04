@@ -1,13 +1,14 @@
 import django.db.models.signals as signals
-# import environ
+import environ
 import os
 import sentry_sdk
 
 from pathlib import Path
 from sentry_sdk.integrations.django import DjangoIntegration
 
-# env = environ.Env()
-# environ.Env.read_env()
+env = environ.Env()
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oc_lettings_site.settings')
+environ.Env.read_env()
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -18,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -176,7 +177,7 @@ LOGGING = {
 }
 
 sentry_sdk.init(
-    dsn=os.environ.get("SENTRY_KEY_URL"),
+    dsn=env("SENTRY_KEY_URL"),
     traces_sample_rate=1.0,
     profiles_sample_rate=1.0,
     integrations=[
