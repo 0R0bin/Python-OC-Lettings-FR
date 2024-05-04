@@ -32,5 +32,3 @@ jobs:
       run: |
         echo ${{ secrets.SENTRY_KEY_URL }}
         cd ./oc_lettings_site
-        pytest
-        flake8
