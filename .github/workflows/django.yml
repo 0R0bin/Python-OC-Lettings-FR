@@ -7,7 +7,8 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build-and-test-and-quality:
+
+  django-test-and-quality:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -37,18 +38,11 @@ jobs:
         SENTRY_KEY_URL: ${{ secrets.SENTRY_KEY_URL }}
       run: |
         flake8 ./oc_lettings_site
-  
+
+
   build-and-push-docker:
     runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v3
-
-
-  build:
-
-    runs-on: ubuntu-latest
+    needs: django-test-and-quality
     
     steps:
       - name: Check out the repo
