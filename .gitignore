@@ -3,4 +3,4 @@
 env
 oc_lettings_site/oc_lettings_site/.env
 oc_lettings_site/logs/debug.log
-oc_lettings_site/.coverage
+.coverage

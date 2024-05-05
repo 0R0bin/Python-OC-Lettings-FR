@@ -30,7 +30,6 @@ jobs:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         SENTRY_KEY_URL: ${{ secrets.SENTRY_KEY_URL }}
       run: |
-        cd ./oc_lettings_site
-        coverage run -m pytest
+        coverage run -m pytest ./oc_lettings_site
         coverage report
-        flake8
+        flake8 ./oc_lettings_site
