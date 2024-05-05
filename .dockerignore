@@ -1,9 +1,8 @@
 env
 .pytest_cache
 **/__pycache__
-*.pyc
 .git
+.github
 .gitignore
 Dockerfile
 .dockerignore
-docker-compose.yaml
