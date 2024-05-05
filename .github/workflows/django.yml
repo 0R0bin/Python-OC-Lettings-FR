@@ -37,3 +37,16 @@ jobs:
         SENTRY_KEY_URL: ${{ secrets.SENTRY_KEY_URL }}
       run: |
         flake8 ./oc_lettings_site
+  
+  build-and-push-on-docker:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build And Push To Docker
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_REPO_NAME: ${{ secrets.DOCKER_REPO_NAME }}
+      run: |
+        docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
+        docker build -t ${DOCKER_USERNAME}/${DOCKER_REPO_NAME} . --platform=linux/amd64
+        docker push ${DOCKER_USERNAME}/${DOCKER_REPO_NAME}:latest
