@@ -21,6 +21,8 @@ RUN . /opt/venv/bin/activate && pip install -r requirements.txt
 COPY . code
 WORKDIR /code
 
+RUN python3 /code/oc_lettings_site/manage.py collectstatic --noinput
+
 # Port 8000
 EXPOSE $PORT
 
