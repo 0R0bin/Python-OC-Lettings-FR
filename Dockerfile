@@ -27,7 +27,7 @@ WORKDIR /code
 
 # Ecriture du .env
 RUN echo "SECRET_KEY=$secret_key" > /code/oc_lettings_site/oc_lettings_site/.env
-RUN echo "SENTRY_KEY_URL=$sentry_url" > /code/oc_lettings_site/oc_lettings_site/.env
+RUN echo "SENTRY_KEY_URL=$sentry_url" >> /code/oc_lettings_site/oc_lettings_site/.env
 
 # Récupération des statics
 RUN python3 /code/oc_lettings_site/manage.py collectstatic --noinput
