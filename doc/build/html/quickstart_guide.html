@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="fr" data-content_root="./">
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QuickStart Guide &mdash; Documentation p13_oc_r0b1n </title>
+  <title>QuickStart Guide &mdash; p13_oc_r0b1n  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,13 +15,12 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d1a510d7"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/translations.js?v=bf059b8c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Usage Guide" href="usage_guide.html" />
     <link rel="prev" title="Welcome to p13_oc_r0b1n’s documentation!" href="index.html" /> 
 </head>
@@ -39,7 +38,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -48,18 +47,21 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">QuickStart Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#git">Git</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#venv">Venv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#secret-key">SECRET_KEY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sentry-sdk">SENTRY_SDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#env">.env</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#last-steps">Last steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launch-project-using-docker">Launch Project Using Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launch-project-using-git-repository">Launch project using Git Repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#venv">Venv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#secret-key">SECRET_KEY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sentry-sdk">SENTRY_SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#env-file">.env file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#last-steps">Last steps</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests_and_quality.html">Tests and Quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tech_and_languages.html">Technologies And Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming_interface.html">Programming Interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sources.html">Usefull links</a></li>
 </ul>
@@ -80,7 +82,7 @@
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">QuickStart Guide</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/quickstart_guide.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+            <a href="_sources/quickstart_guide.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -89,19 +91,43 @@
            <div itemprop="articleBody">
              
   <section id="quickstart-guide">
-<h1>QuickStart Guide<a class="headerlink" href="#quickstart-guide" title="Lien vers cette rubrique"></a></h1>
+<h1>QuickStart Guide<a class="headerlink" href="#quickstart-guide" title="Link to this heading"></a></h1>
 <p>Here, you will learn how to quickly launch the project on your local computer</p>
-<section id="git">
-<h2>Git<a class="headerlink" href="#git" title="Lien vers cette rubrique"></a></h2>
+<section id="launch-project-using-docker">
+<h2>Launch Project Using Docker<a class="headerlink" href="#launch-project-using-docker" title="Link to this heading"></a></h2>
+<p>You can launch the project on your local computer with Docker</p>
+<dl class="simple">
+<dt>Follow those steps</dt><dd><ul class="simple">
+<li><p>Create a <a class="reference external" href="https://hub.docker.com/signup/">DockerHub</a> Account</p></li>
+<li><p>Install Docker on your compute <em>follow docker tutorial, depending on your OS</em></p></li>
+<li><p>Open your terminal</p></li>
+</ul>
+</dd>
+</dl>
+<p>Now, enter this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">r0b1ndock</span><span class="o">/</span><span class="n">p13_oc</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before launching the following command make sure that localhost:8000 is free to use</p>
+</div>
+<p>Simply build it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8000</span><span class="p">:</span><span class="mi">8000</span> <span class="n">r0b1ndock</span><span class="o">/</span><span class="n">p13_oc</span>
+</pre></div>
+</div>
+<p>You can now visit your <strong>http://localhost:8000/</strong> as if you launched it from Django</p>
+</section>
+<section id="launch-project-using-git-repository">
+<h2>Launch project using Git Repository<a class="headerlink" href="#launch-project-using-git-repository" title="Link to this heading"></a></h2>
 <p>First, you need to go to this <a class="reference external" href="https://github.com/0R0bin/Python-OC-Lettings-FR/">repository</a></p>
 <p>Then you need to <strong>FORK</strong> the project to your personnal Git. Make sure to <strong>fork</strong> the project! It’s important for the in-depth configuration</p>
 <p>Now that you have your project, simply clone it to your local computer from your link:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/&lt;</span><span class="n">REPLACE_USER</span><span class="o">&gt;/&lt;</span><span class="n">PROJECT_NAME</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</section>
 <section id="venv">
-<h2>Venv<a class="headerlink" href="#venv" title="Lien vers cette rubrique"></a></h2>
+<h3>Venv<a class="headerlink" href="#venv" title="Link to this heading"></a></h3>
 <p>Now, let’s create a virtual environment :</p>
 <p>Unix/MacOS:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">env</span>
@@ -126,11 +152,11 @@
 </div>
 </section>
 <section id="secret-key">
-<h2>SECRET_KEY<a class="headerlink" href="#secret-key" title="Lien vers cette rubrique"></a></h2>
+<h3>SECRET_KEY<a class="headerlink" href="#secret-key" title="Link to this heading"></a></h3>
 <p>Visit this <a class="reference external" href="https://djecrety.ir/">website</a> to generate your secret_key and keep it</p>
 </section>
 <section id="sentry-sdk">
-<h2>SENTRY_SDK<a class="headerlink" href="#sentry-sdk" title="Lien vers cette rubrique"></a></h2>
+<h3>SENTRY_SDK<a class="headerlink" href="#sentry-sdk" title="Link to this heading"></a></h3>
 <p>This project uses SentrySDK to log errors in the project</p>
 <dl class="simple">
 <dt>Follow these steps to get your link</dt><dd><ul class="simple">
@@ -142,8 +168,8 @@
 </dd>
 </dl>
 </section>
-<section id="env">
-<h2>.env<a class="headerlink" href="#env" title="Lien vers cette rubrique"></a></h2>
+<section id="env-file">
+<h3>.env file<a class="headerlink" href="#env-file" title="Link to this heading"></a></h3>
 <p>Now that you have all the required informations, create a .env file here:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oc_lettings_site</span><span class="o">/</span><span class="n">oc_lettings_site</span><span class="o">/.</span><span class="n">env</span>
 </pre></div>
@@ -156,7 +182,7 @@
 <p>To be sure of the directory, .env should be placed in the same directory as settings.py</p>
 </section>
 <section id="last-steps">
-<h2>Last steps<a class="headerlink" href="#last-steps" title="Lien vers cette rubrique"></a></h2>
+<h3>Last steps<a class="headerlink" href="#last-steps" title="Link to this heading"></a></h3>
 <p>In your terminal go to oc_lettings_site <em>-the one containing all applications-</em></p>
 <p>And execute this command to collect static files:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">collectstatic</span>
@@ -169,24 +195,25 @@
 <p>You can now go to your localhost <strong>http://127.0.0.0.1:8000</strong>  and navigate through the website</p>
 </section>
 </section>
+</section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to p13_oc_r0b1n’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="usage_guide.html" class="btn btn-neutral float-right" title="Usage Guide" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to p13_oc_r0b1n’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage_guide.html" class="btn btn-neutral float-right" title="Usage Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Droits d'auteur 2024, Robin.</p>
+    <p>&#169; Copyright 2024, Robin.</p>
   </div>
 
-  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
-    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

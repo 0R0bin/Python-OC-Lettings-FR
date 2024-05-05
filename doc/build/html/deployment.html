@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="fr" data-content_root="./">
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deployment &mdash; Documentation p13_oc_r0b1n </title>
+  <title>Deployment &mdash; p13_oc_r0b1n  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,14 +15,14 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d1a510d7"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/translations.js?v=bf059b8c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Recherche" href="search.html" />
-    <link rel="prev" title="Programming Interfaces" href="programming_interface.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usefull links" href="sources.html" />
+    <link rel="prev" title="Database" href="database.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,7 +38,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,12 +46,21 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">QuickStart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests_and_quality.html">Tests and Quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tech_and_languages.html">Technologies And Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming_interface.html">Programming Interfaces</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Deployment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#github-actions">GitHub Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#django-test-and-quality">django-test-and-quality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#build-and-push-docker">build-and-push-docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render">Render</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sources.html">Usefull links</a></li>
 </ul>
 
         </div>
@@ -70,7 +79,7 @@
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Deployment</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/deployment.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+            <a href="_sources/deployment.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -79,25 +88,117 @@
            <div itemprop="articleBody">
              
   <section id="deployment">
-<h1>Deployment<a class="headerlink" href="#deployment" title="Lien vers cette rubrique"></a></h1>
+<h1>Deployment<a class="headerlink" href="#deployment" title="Link to this heading"></a></h1>
+<p>Here we’ll describe a step-by-step guide in order to deploy your application to the cloud</p>
+<section id="github-actions">
+<h2>GitHub Actions<a class="headerlink" href="#github-actions" title="Link to this heading"></a></h2>
+<p>This part is where CI and launch CL are done</p>
+<p>In fact, you can refer to the .githubworkflowsdjango.yml to see workflows and jobs done</p>
+<section id="django-test-and-quality">
+<h3>django-test-and-quality<a class="headerlink" href="#django-test-and-quality" title="Link to this heading"></a></h3>
+<p>This job is used to launch <em>flake8</em> for quality and unit test with <em>coverage</em>.</p>
+<p>Here you can see some {{ secrets.variables }}</p>
+<figure class="align-default">
+<img alt="Secrets Variables example" src="_images/secrets_var.png" />
+</figure>
+<p>This mean you need to initialize those in GitHub</p>
+<dl class="simple">
+<dt>This is where the <strong>fork</strong> is important</dt><dd><ul class="simple">
+<li><p>Go to your repository</p></li>
+<li><p>Open Settings</p></li>
+<li><p>Extend on Secrets and variables</p></li>
+<li><p>Click on Actions</p></li>
+<li><p>Scroll down to Repository secrets</p></li>
+</ul>
+</dd>
+</dl>
+<p>Then enter all variables present below</p>
+<figure class="align-default">
+<img alt="Secrets Variables To Enter" src="_images/github_secret.png" />
+</figure>
+<dl>
+<dt>Values</dt><dd><ul>
+<li><p>DOCKER_PASSWORD : The password of your Docker Account</p></li>
+<li><dl>
+<dt>DOCKER_REPO_NAME<span class="classifier">The repository name of your Docker Container <em>See build-and-push-docker below</em></span></dt><dd><p>For example in r0b1ndock/p13_oc, the name is <strong>p13_oc</strong></p>
+</dd>
+</dl>
+</li>
+<li><p>DOCKER_USERNAME : The username of your Docker Account</p></li>
+<li><p>LINK_RENDER : <em>See Render part below</em></p></li>
+<li><p>SECRET_KEY : The Key present in your .env file</p></li>
+<li><p>SENTRY_KEY_URL : The URL link from sentry_sdk</p></li>
+</ul>
+</dd>
+</dl>
+<p>With those informations, we can continue the breakdown</p>
+</section>
+</section>
+<section id="build-and-push-docker">
+<h2>build-and-push-docker<a class="headerlink" href="#build-and-push-docker" title="Link to this heading"></a></h2>
+<p>Create Docker repository on your DockerHub Account</p>
+<p>The name given goes here in your repository secrets <strong>DOCKER_REPO_NAME</strong></p>
+<p>This job build your project using Dockerfile, then push it to your DockerHub Account</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This job is launched only if <em>django-test-and-quality</em> is OK</p>
+</div>
+</section>
+<section id="render">
+<h2>Render<a class="headerlink" href="#render" title="Link to this heading"></a></h2>
+<p>Actually deployed to <a class="reference external" href="https://render.com/">Render</a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>First of all you need a Render Account</p></li>
+<li><p>Go to Dashboard</p></li>
+<li><p>Click New</p></li>
+<li><p>Web Service</p></li>
+<li><p>Deploy an existing image from a registry &gt; Next</p></li>
+<li><dl class="simple">
+<dt>Enter informations</dt><dd><p>URL : <em>docker.io/your_docker_username/project_name:latest</em>
+Add Credential <strong>Select Docker for registry</strong> and enter other informations</p>
+</dd>
+</dl>
+</li>
+<li><p>Select the tier wanted (Free Tier is fine for this project)</p></li>
+</ul>
+</div></blockquote>
+<p>You should now have your WebService in Dashboard</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Enter details</p></li>
+<li><p>Go to Settings</p></li>
+<li><p>Scroll down to find <em>Deploy Hook</em></p></li>
+<li><p>Copy link and save to <strong>LINK_RENDER</strong> in your repository secrets</p></li>
+</ul>
+</div></blockquote>
+<p>Now, this job simply request render webhook so he can actualise Docker.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This job is launched only if <em>build-and-push-docker</em> is OK</p>
+</div>
+<p>The end !</p>
+<p>Last step is to push on master branch, then your code will be live at the address given by Render.com</p>
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="programming_interface.html" class="btn btn-neutral float-left" title="Programming Interfaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="database.html" class="btn btn-neutral float-left" title="Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sources.html" class="btn btn-neutral float-right" title="Usefull links" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Droits d'auteur 2024, Robin.</p>
+    <p>&#169; Copyright 2024, Robin.</p>
   </div>
 
-  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
-    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

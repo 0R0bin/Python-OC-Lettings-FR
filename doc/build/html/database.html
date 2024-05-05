@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="fr" data-content_root="./">
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Database &mdash; Documentation p13_oc_r0b1n </title>
+  <title>Database &mdash; p13_oc_r0b1n  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,14 +15,13 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d1a510d7"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/translations.js?v=bf059b8c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Programming Interfaces" href="programming_interface.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Deployment" href="deployment.html" />
     <link rel="prev" title="Technologies And Languages" href="tech_and_languages.html" /> 
 </head>
 
@@ -39,7 +38,7 @@
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -47,12 +46,24 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">QuickStart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests_and_quality.html">Tests and Quality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tech_and_languages.html">Technologies And Languages</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programming_interface.html">Programming Interfaces</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#entity-relationship-diagram">Entity Relationship Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interpretation-by-django">Interpretation by Django</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#django-admin">Django Admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#command-sqlite-to-navigate-through-the-database">Command SQLite to navigate through the database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quickly-display-base">Quickly display base</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources.html">Usefull links</a></li>
 </ul>
 
         </div>
@@ -71,7 +82,7 @@
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Database</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/database.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+            <a href="_sources/database.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -80,26 +91,79 @@
            <div itemprop="articleBody">
              
   <section id="database">
-<h1>Database<a class="headerlink" href="#database" title="Lien vers cette rubrique"></a></h1>
+<h1>Database<a class="headerlink" href="#database" title="Link to this heading"></a></h1>
+<p>As mentionned earlier, we used SQLite for this project</p>
+<section id="entity-relationship-diagram">
+<h2>Entity Relationship Diagram<a class="headerlink" href="#entity-relationship-diagram" title="Link to this heading"></a></h2>
+<figure class="align-default">
+<img alt="Database ERD" src="_images/db_schema.png" />
+</figure>
+</section>
+<section id="interpretation-by-django">
+<h2>Interpretation by Django<a class="headerlink" href="#interpretation-by-django" title="Link to this heading"></a></h2>
+<p>Django Framework, based on python is Class oriented language. This mean that tables are created from <em>Models</em>. Models are stored in different <em>models.py</em> files.</p>
+<p>Each one of them are stored in <em>application</em></p>
+<dl class="simple">
+<dt>Examples here</dt><dd><ul class="simple">
+<li><p>lettings/models</p></li>
+<li><p>profiles/models</p></li>
+</ul>
+</dd>
+</dl>
+<p>In application lettings you will find Address and Letting models</p>
+<p>In profiles application you will find Profile model, with a ForeignKey on Django User Base Model</p>
+<p>Here is the Profile Model</p>
+<figure class="align-default">
+<img alt="Profile Model" src="_images/profile_model.png" />
+</figure>
+<section id="django-admin">
+<h3>Django Admin<a class="headerlink" href="#django-admin" title="Link to this heading"></a></h3>
+<p>Django come with an admin section that can be found here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8000</span><span class="o">/</span><span class="n">admin</span>
+</pre></div>
+</div>
+<p>This is basically a direct reading of Database</p>
+</section>
+</section>
+<section id="command-sqlite-to-navigate-through-the-database">
+<h2>Command SQLite to navigate through the database<a class="headerlink" href="#command-sqlite-to-navigate-through-the-database" title="Link to this heading"></a></h2>
+<p><em>This list come from README.MD</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Locate your file</p></li>
+<li><p>Open shell session <em>sqlite3</em></p></li>
+<li><p>Connect to databse <em>.open oc-lettings-site.sqlite3</em></p></li>
+<li><p>Display tables <em>.tables</em></p></li>
+<li><p>Display column names in profiles table, <em>pragma table_info(oc_lettings_site_profile);</em></p></li>
+<li><p>Launch SQL request on profiles table, <em>select user_id, favorite_city from oc_lettings_site_profile where favorite_city like ‘B%’;</em></p></li>
+<li><p><em>.quit</em> to quit sqlite3 shell</p></li>
+</ul>
+</div></blockquote>
+<section id="quickly-display-base">
+<h3>Quickly display base<a class="headerlink" href="#quickly-display-base" title="Link to this heading"></a></h3>
+<p>Visit this <a class="reference external" href="https://inloop.github.io/sqlite-viewer/">website</a></p>
+<p>Simply drag and drop your SQLite file to check databse informations</p>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
-        <a href="tech_and_languages.html" class="btn btn-neutral float-left" title="Technologies And Languages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
-        <a href="programming_interface.html" class="btn btn-neutral float-right" title="Programming Interfaces" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tech_and_languages.html" class="btn btn-neutral float-left" title="Technologies And Languages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="deployment.html" class="btn btn-neutral float-right" title="Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Droits d'auteur 2024, Robin.</p>
+    <p>&#169; Copyright 2024, Robin.</p>
   </div>
 
-  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
-    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

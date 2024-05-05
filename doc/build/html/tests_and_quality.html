@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usefull links &mdash; p13_oc_r0b1n  documentation</title>
+  <title>Tests and Quality &mdash; p13_oc_r0b1n  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -21,7 +21,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Deployment" href="deployment.html" /> 
+    <link rel="next" title="Technologies And Languages" href="tech_and_languages.html" />
+    <link rel="prev" title="Usage Guide" href="usage_guide.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,11 +48,15 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">QuickStart Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tests_and_quality.html">Tests and Quality</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tests and Quality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quality">Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unit-tests">Unit Tests</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tech_and_languages.html">Technologies And Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Usefull links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sources.html">Usefull links</a></li>
 </ul>
 
         </div>
@@ -68,9 +73,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Usefull links</li>
+      <li class="breadcrumb-item active">Tests and Quality</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/sources.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/tests_and_quality.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -78,26 +83,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="usefull-links">
-<h1>Usefull links<a class="headerlink" href="#usefull-links" title="Link to this heading"></a></h1>
+  <section id="tests-and-quality">
+<h1>Tests and Quality<a class="headerlink" href="#tests-and-quality" title="Link to this heading"></a></h1>
+<p>This section contains informations about unit tests and quality code</p>
+<section id="quality">
+<h2>Quality<a class="headerlink" href="#quality" title="Link to this heading"></a></h2>
+<p>To ensure that the code always remains maintainable, we use <strong>Flake8</strong></p>
+<p>In order to check code from your local computer, activate virtual environment
+Then launch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flake8</span> <span class="o">.</span>\<span class="n">oc_lettings_site</span>\
+</pre></div>
+</div>
+<p>If it returns nothing like below</p>
+<figure class="align-default">
+<img alt="Empty Return Flake8" src="_images/return_flake8.png" />
+</figure>
+<p>Then the code doesn’t contains any errors and your good to go</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Configuration can be find in <strong>setup.cfg</strong></p>
+</div>
+</section>
+<section id="unit-tests">
+<h2>Unit Tests<a class="headerlink" href="#unit-tests" title="Link to this heading"></a></h2>
+<p>In order to keep production in a stable version by writing unit test, pytest and coverage were implemented</p>
+<p>You can find these in every ../&lt;app_name&gt;/tests folder</p>
 <dl class="simple">
-<dt>Here’s some link used to make this project work</dt><dd><ul class="simple">
-<li><p>Sentry Documenation <a class="reference external" href="https://docs.sentry.io/platforms/python/integrations/django/">here</a></p></li>
-<li><p>SQLite Reader <a class="reference external" href="https://inloop.github.io/sqlite-viewer/">here</a></p></li>
-<li><p>Tutorial Render &amp; Docker <a class="reference external" href="https://docs.render.com/deploy-an-image/">here</a></p></li>
-<li><p>QuickStart Sphinx Documentation <a class="reference external" href="https://blog.flozz.fr/2020/09/07/introduction-a-sphinx-un-outil-de-documentation-puissant/">here</a></p></li>
-<li><p>ReadTheDocs Documentation <a class="reference external" href="https://docs.readthedocs.io/en/stable/tutorial/">here</a></p></li>
-<li><p>OC Configuration RTD / Sphinx <a class="reference external" href="https://s3.eu-west-1.amazonaws.com/course.oc-static.com/projects/Python+FR/841+Mettez+%C3%A0+l'%C3%A9chelle+une+application+Django+en+utilisant+une+architecture+modulaire/Configuration+Read+the+Docs.pdf">here</a></p></li>
+<dt>For example</dt><dd><ul class="simple">
+<li><p>oc_lettings_site/lettings/tests/</p></li>
+<li><p>oc_lettings_site/oc_lettings_site/tests/</p></li>
+<li><p>oc_lettings_site/profiles/tests/</p></li>
 </ul>
 </dd>
 </dl>
+<p>To launch them, activate virtual environment</p>
+<p>Then launch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coverage</span> <span class="n">run</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span> <span class="o">./</span><span class="n">oc_lettings_site</span>
+</pre></div>
+</div>
+<p>You should have this</p>
+<figure class="align-default">
+<img alt="First Return Coverage" src="_images/first_return_coverage.png" />
+</figure>
+<p>From there you can launch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coverage</span> <span class="n">report</span>
+</pre></div>
+</div>
+<p>And you can see coverage % here</p>
+<figure class="align-default">
+<img alt="Final Return Coverage" src="_images/final_coverage.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Configuration can be find in <strong>setup.cfg</strong></p>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="deployment.html" class="btn btn-neutral float-left" title="Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage_guide.html" class="btn btn-neutral float-left" title="Usage Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tech_and_languages.html" class="btn btn-neutral float-right" title="Technologies And Languages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

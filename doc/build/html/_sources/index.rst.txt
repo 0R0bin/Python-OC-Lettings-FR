@@ -6,10 +6,8 @@
 Welcome to p13_oc_r0b1n's documentation!
 ========================================
 
-.. image:: assets/main_pic.png
+.. figure:: assets/main_pic.png
    :alt: Orange County Lettings Main Picture
-   :align: center
-
 
 This documentation is written to understand the code behind the Orange Country Lettings website.
 
@@ -25,9 +23,9 @@ Orange Country Lettings is quickly growing in the United States, feel free to `j
 
    ./quickstart_guide.rst
    ./usage_guide.rst
+   ./tests_and_quality.rst
    ./tech_and_languages.rst
    ./database.rst
-   ./programming_interface.rst
    ./deployment.rst
    ./sources.rst
 
