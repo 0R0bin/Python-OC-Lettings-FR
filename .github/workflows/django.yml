@@ -52,7 +52,7 @@ jobs:
           docker login -u="${{ secrets.DOCKER_USERNAME }}" -p="${{ secrets.DOCKER_PASSWORD }}"
       - name: Build Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }} --platform=linux/amd64 --build-arg secret_key=${{ secrets.SECRET_KEY }} --build-arg sentry_url=${{ secrets.SENTRY_KEY_URL }} .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }} --platform=linux/amd64 --build-arg secret_key="${{ secrets.SECRET_KEY }}" --build-arg sentry_url=${{ secrets.SENTRY_KEY_URL }} .
       - name: Push Image
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:latest
