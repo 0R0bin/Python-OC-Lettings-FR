@@ -54,8 +54,8 @@ Follow these steps to get your link
     * Create a project with the Django platform
     * Copy the dsn key
 
-.env
-----
+.env file
+---------
 
 Now that you have all the required informations, create a .env file here::
 
