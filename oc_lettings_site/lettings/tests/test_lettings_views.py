@@ -18,7 +18,7 @@ def test_lettings_index_view():
     content = response.content.decode()
 
     assert response.status_code == 200
-    assert '<h1 class="page-header-ui-title mb-3 display-6">Lettings</h1>' in content
+    assert '<h1 class="page-header-ui-title mb-3 display-6">LettingsTEST</h1>' in content
     assertTemplateUsed(response, r'lettings/index.html')
 
 
