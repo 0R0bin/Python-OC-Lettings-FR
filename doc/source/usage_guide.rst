@@ -9,6 +9,8 @@ Notes :
 
 Main Page
 ---------
+Use Case : The user launch the website
+
 Here you can see two buttons :
     * On the left button "Profiles" you have access to the list of all profiles registered
     * On the right button "Lettings" you have access to the list of all lettings registered
@@ -18,6 +20,8 @@ Here you can see two buttons :
 
 Profiles Main Page
 ------------------
+Use Case : The user wants to see all profiles
+
 Here you can see the list of registred profiles
 
 You can click on a profile to enter his details
@@ -27,6 +31,8 @@ You can click on a profile to enter his details
 
 Profile Details Page
 --------------------
+Use Case : The user wants to see the details of a profile
+
 Here you can see the details of a profile
 
 .. figure:: assets/profile_details_page.png
@@ -34,6 +40,8 @@ Here you can see the details of a profile
 
 Lettings Main Page
 ------------------
+Use Case : The user wants to see all lettings
+
 Here you can see the list of registred lettings
 
 You can click on a letting to enter his details
@@ -43,6 +51,8 @@ You can click on a letting to enter his details
 
 Letting Details Page
 --------------------
+Use Case : The user wants to see the details of a letting
+
 Here you can see the details of a letting
 
 .. figure:: assets/letting_details_page.png

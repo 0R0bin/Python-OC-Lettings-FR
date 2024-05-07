@@ -8,7 +8,7 @@ GitHub Actions
 
 This part is where CI and launch CL are done
 
-In fact, you can refer to the .github\workflows\django.yml to see workflows and jobs done
+In fact, you can refer to the .github/workflows/django.yml to see workflows and jobs done
 
 django-test-and-quality
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,10 +40,13 @@ Values
         For example in r0b1ndock/p13_oc, the name is **p13_oc**
     * DOCKER_USERNAME : The username of your Docker Account
     * LINK_RENDER : *See Render part below* 
-    * SECRET_KEY : The Key present in your .env file
-    * SENTRY_KEY_URL : The URL link from sentry_sdk
+    * SECRET_KEY : The Secret Key present in your .env file
+    * SENTRY_KEY_URL : The URL link from sentry_sdk also present in your .env file
 
 With those informations, we can continue the breakdown
+
+In order to end this job, GitHub Action will now install python, install your requirements.txt and then launch and tests and qualities features. Such as
+flake8 or coverage. 
 
 
 build-and-push-docker
@@ -58,8 +61,8 @@ This job build your project using Dockerfile, then push it to your DockerHub Acc
 .. note::
     This job is launched only if *django-test-and-quality* is OK
 
-Render
-------
+Render **deploy-render**
+------------------------
 
 Actually deployed to `Render <https://render.com/>`__
 
@@ -87,4 +90,4 @@ Now, this job simply request render webhook so he can actualise Docker.
 
 The end ! 
 
-Last step is to push on master branch, then your code will be live at the address given by Render.com
+Last step is to push on master branch, then GitHub Action will execute all your jobs in the workflow and your code will be live at the address given by Render.com

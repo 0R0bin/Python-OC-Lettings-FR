@@ -27,5 +27,15 @@ This section list all technologies and language with their versions and official
         Log exceptions and others
     * `Sphinx 7.3.7 <https://pypi.org/project/Sphinx/>`__
         To write documentation on ReadTheDocs
+    * `Visual Studio Code 1.89 <https://code.visualstudio.com/>`__
+        IDE uses with those extensions
+            * `Django 1.15.0 <https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django>`__
+                Syntax and scoped snippets for Django Framework
+            * `Docker 1.29.1 <https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker>`__
+                Make it easier for everything with Docker
+            * `GitLens *Free* 14.9.0 <https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens>`__
+                Track commits
+            * `Python Pack *Pylance / Python / Python Debugger* 2024.6.0 <https://marketplace.visualstudio.com/items?itemName=ms-python.python>`__
+                To debug, launch, and everything with python
     * `Whitenoise 6.6.0 <https://pypi.org/project/whitenoise/>`__
         Simplify access to static files
