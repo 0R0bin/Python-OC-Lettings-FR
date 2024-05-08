@@ -55,7 +55,6 @@ jobs:
         run: |
           IMAGE_HASH=$(docker images -q | head -n 1)
           echo "IMAGE_HASH=$IMAGE_HASH"
-          echo "::set-env name=IMAGE_HASH::${IMAGE_HASH}"
       - run: echo $IMAGE_HASH
       - name: Push Image
         run: |
