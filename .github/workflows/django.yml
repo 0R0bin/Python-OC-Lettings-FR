@@ -51,7 +51,11 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }} --platform=linux/amd64 --build-arg secret_key="${{ secrets.SECRET_KEY }}" --build-arg sentry_url=${{ secrets.SENTRY_KEY_URL }} .
       - run: docker images --no-trunc --quiet $IMAGE_HASH
-      - run: echo (docker images --no-trunc --quiet)
+      - name: Set IMAGE_HASH
+        run: |
+          IMAGE_HASH=$(docker images -q | head -n 1)
+          echo "IMAGE_HASH=$IMAGE_HASH"
+          echo "::set-env name=IMAGE_HASH::${IMAGE_HASH}"
       - run: echo $IMAGE_HASH
       - name: Push Image
         run: |
