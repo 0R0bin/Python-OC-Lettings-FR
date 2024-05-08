@@ -53,9 +53,7 @@ jobs:
       - name: Push Image
         run: |
           IMAGE_HASH=$(docker images --no-trunc --quiet | head -n 1)
-          echo "IMAGE_HASH=$IMAGE_HASH"
-          echo "IMAGE_HASH_WO_SHA=${IMAGE_HASH:7}"
-          docker tag ${IMAGE_HASH:7} ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:latest
+          docker tag ${IMAGE_HASH:7} ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:${IMAGE_HASH:7}
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:${IMAGE_HASH:7}
 
