@@ -12,7 +12,7 @@ def test_base_index_view():
     response = client.get(path)
     content = response.content.decode()
 
-    div_check = '<h1 class="page-header-ui-title mb-3 display-6">Welcome to Holiday Homes</h1>'
+    div_check = '<h1 class="page-header-ui-title mb-3 display-6">Title_TEST</h1>'
 
     assert div_check in content
     assert response.status_code == 200
