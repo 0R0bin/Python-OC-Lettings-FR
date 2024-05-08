@@ -53,7 +53,7 @@ jobs:
       - run: docker images --no-trunc --quiet $IMAGE_HASH
       - name: Set IMAGE_HASH
         run: |
-          IMAGE_HASH=$(docker images -q | head -n 1)
+          IMAGE_HASH=$(docker images --no-trunc --quiet | head -n 1)
           echo "IMAGE_HASH=$IMAGE_HASH"
       - run: echo $IMAGE_HASH
       - name: Push Image
