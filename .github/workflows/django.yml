@@ -50,10 +50,13 @@ jobs:
       - name: Build Image
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }} --platform=linux/amd64 --build-arg secret_key="${{ secrets.SECRET_KEY }}" --build-arg sentry_url=${{ secrets.SENTRY_KEY_URL }} .
-      - run: echo $IMAGE_HASH
-      - name: Push Image
+      - name: Set IMAGE_HASH
         run: |
           IMAGE_HASH=$(docker images --no-trunc --quiet | head -n 1)
+          echo "IMAGE_HASH=$IMAGE_HASH"
+      - name: Push Image
+        run: |
+          echo "IMAGE_HASH=$IMAGE_HASH"
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:$IMAGE_HASH
 
