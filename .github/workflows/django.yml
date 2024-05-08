@@ -53,6 +53,7 @@ jobs:
       - name: Push Image
         run: |
           docker images --no-trunc --quiet $IMAGE_HASH
+          echo $IMAGE_HASH
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:${IMAGE_HASH}
 
