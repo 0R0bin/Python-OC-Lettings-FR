@@ -1,6 +1,6 @@
 name: Django CI
 
-on: [push, request]
+on: push
 
 jobs:
 
