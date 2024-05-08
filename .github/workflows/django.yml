@@ -55,7 +55,7 @@ jobs:
           IMAGE_HASH=$(docker images --no-trunc --quiet | head -n 1)
           echo "IMAGE_HASH=$IMAGE_HASH"
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:$IMAGE_HASH
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:"$IMAGE_HASH"
 
 
   deploy-render:
