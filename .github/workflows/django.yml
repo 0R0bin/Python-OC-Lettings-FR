@@ -53,7 +53,7 @@ jobs:
       - name: Push Image
         run: |
           IMAGE_HASH=$(docker images --no-trunc --quiet | head -n 1)
-          IMAGE_HASH_WO_SHA=($IMAGE_HASH | sed 's/^sha://')
+          IMAGE_HASH_WO_SHA=$(echo $IMAGE_HASH | sed 's/^sha://')
           echo "IMAGE_HASH=$IMAGE_HASH"
           echo "IMAGE_HASH_WO_SHA=$IMAGE_HASH_WO_SHA"
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO_NAME }}:latest
